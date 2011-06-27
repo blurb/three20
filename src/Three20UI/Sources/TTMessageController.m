@@ -582,12 +582,16 @@
     [_dataSource release];
     _dataSource = [dataSource retain];
 
-    for (UITextField* textField in _fieldViews) {
-      if ([textField isKindOfClass:[TTPickerTextField class]]) {
-        TTPickerTextField* menuTextField = (TTPickerTextField*)textField;
-        menuTextField.dataSource = dataSource;
+      for (int i = 0; i < _fields.count; ++i) {
+          id field = [_fields objectAtIndex:i];
+          if ([field isKindOfClass:[TTMessageRecipientField class]]) {
+              UITextField* textField = [_fieldViews objectAtIndex:i];
+              if ([textField isKindOfClass:[TTPickerTextField class]]) {
+                  TTPickerTextField* menuTextField = (TTPickerTextField*)textField;
+                  menuTextField.dataSource = dataSource;
+              }
+          }
       }
-    }
   }
 }
 
