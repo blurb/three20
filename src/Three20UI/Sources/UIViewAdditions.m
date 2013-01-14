@@ -95,7 +95,6 @@
 
 @end
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,29 +102,33 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (id)initInView:(UIView *)view location:(CGPoint)location {
-  if (self = [super init]) {
-    _tapCount = 1;
-    _locationInWindow = location;
-    _previousLocationInWindow = location;
-
-    UIView *target = [view.window hitTest:_locationInWindow withEvent:nil];
-    _view = [target retain];
-    _window = [view.window retain];
-    _phase = UITouchPhaseBegan;
-    _touchFlags._firstTouchForView = 1;
-    _touchFlags._isTap = 1;
-    _timestamp = [NSDate timeIntervalSinceReferenceDate];
-  }
-  return self;
-}
+// Commenting-out since this is only used for debugging
+// (https://github.com/facebook/three20/issues/802 )
+//- (id)initInView:(UIView *)view location:(CGPoint)location {
+//  if (self = [super init]) {
+//    _tapCount = 1;
+//    _locationInWindow = location;
+//    _previousLocationInWindow = location;
+//
+//    UIView *target = [view.window hitTest:_locationInWindow withEvent:nil];
+//    _view = [target retain];
+//    _window = [view.window retain];
+//    _phase = UITouchPhaseBegan;
+//    _touchFlags._firstTouchForView = 1;
+//    _touchFlags._isTap = 1;
+//    _timestamp = [NSDate timeIntervalSinceReferenceDate];
+//  }
+//  return self;
+//}
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)changeToPhase:(UITouchPhase)phase {
-  _phase = phase;
-  _timestamp = [NSDate timeIntervalSinceReferenceDate];
-}
+// Commenting-out since this is only used for debugging
+// (https://github.com/facebook/three20/issues/802 )
+//- (void)changeToPhase:(UITouchPhase)phase {
+//  _phase = phase;
+//  _timestamp = [NSDate timeIntervalSinceReferenceDate];
+//}
 
 
 @end
